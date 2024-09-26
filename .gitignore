@@ -35,11 +35,11 @@ timeline.xctimeline
 playground.xcworkspace
 
 ### Xcode Patch ###
-*.xcodeproj/*
-!*.xcodeproj/project.pbxproj
-!*.xcodeproj/xcshareddata/
-!*.xcworkspace/contents.xcworkspacedata
-/*.gcno
+#*.xcodeproj/*
+#!*.xcodeproj/project.pbxproj
+#!*.xcodeproj/xcshareddata/
+#!*.xcworkspace/contents.xcworkspacedata
+#/*.gcno
 
 ### Projects ###
 *.xcodeproj
@@ -116,5 +116,4 @@ iOSInjectionProject/
 .DS_Store
 
 .swiftsourceinfo
-
-
+ExampleApp/XcodeBuild/
