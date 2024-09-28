@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C55F54A2CA82B130003A1E4 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C55F5492CA82B130003A1E4 /* ShadowView.swift */; };
 		2CF2A0FC2C9744C800AE7058 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF2A0FB2C9744C800AE7058 /* AppDelegate.swift */; };
 		2CF2A0FE2C9744C900AE7058 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF2A0FD2C9744C800AE7058 /* SceneDelegate.swift */; };
 		2CF2A1002C9744C900AE7058 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF2A0FF2C9744C900AE7058 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C55F5492CA82B130003A1E4 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		2CF2A0F82C9744C800AE7058 /* ExampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CF2A0FB2C9744C800AE7058 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CF2A0FD2C9744C800AE7058 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				2CF2A0FB2C9744C800AE7058 /* AppDelegate.swift */,
 				2CF2A0FD2C9744C800AE7058 /* SceneDelegate.swift */,
 				2CF2A0FF2C9744C900AE7058 /* ViewController.swift */,
+				2C55F5492CA82B130003A1E4 /* ShadowView.swift */,
 				2CF2A10F2C97464700AE7058 /* Helper.swift */,
 				2CF2A1042C9744C900AE7058 /* Assets.xcassets */,
 				2CF2A1062C9744C900AE7058 /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 				2CF2A0FC2C9744C800AE7058 /* AppDelegate.swift in Sources */,
 				2CF2A0FE2C9744C900AE7058 /* SceneDelegate.swift in Sources */,
 				2CF2A1102C97464700AE7058 /* Helper.swift in Sources */,
+				2C55F54A2CA82B130003A1E4 /* ShadowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

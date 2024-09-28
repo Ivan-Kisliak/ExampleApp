@@ -12,8 +12,8 @@ class ViewController: UIViewController {
     private let helper = Helper()
     
     private let textlabel = UILabel()
-    private let imageView = UIImageView()
-    private let imageContainerView = UIView()
+    private let shadowView = ShadowView(imageName: "raccoon")
+    private let secondShadowView = ShadowView(imageName: "custom")
     private let stackView = UIStackView()
 
     override func viewDidLoad() {
@@ -22,8 +22,6 @@ class ViewController: UIViewController {
         updateNumbers()
         
         setupTextLabel()
-        setupImageContainerView()
-        setupImageView()
         setupView()
         setupStackView()
         view.addSubview(stackView)
@@ -45,7 +43,8 @@ class ViewController: UIViewController {
         stackView.spacing = 10
         
         stackView.addArrangedSubview(textlabel)
-        stackView.addArrangedSubview(imageContainerView)
+        stackView.addArrangedSubview(shadowView)
+        stackView.addArrangedSubview(secondShadowView)
     }
     
     private func setupTextLabel() {
@@ -54,23 +53,6 @@ class ViewController: UIViewController {
         textlabel.font = .systemFont(ofSize: 30, weight: .bold)
         textlabel.textAlignment = .center
         textlabel.textColor = .red
-    }
-
-    private func setupImageContainerView() {
-        imageContainerView.layer.shadowColor = UIColor.black.cgColor
-        imageContainerView.layer.shadowOffset = CGSize(width: 15, height: 15)
-        imageContainerView.layer.shadowOpacity = 1
-        imageContainerView.layer.shadowRadius = 15
-        imageContainerView.layer.cornerRadius = 20
-        imageContainerView.backgroundColor = .cyan
-        
-        imageContainerView.addSubview(imageView)
-    }
-    
-    private func setupImageView() {
-        imageView.image = UIImage(named: "raccoon")
-        imageView.clipsToBounds = true
-        imageView.contentMode = .scaleAspectFit
     }
     
     private func setupView() {
@@ -85,19 +67,12 @@ class ViewController: UIViewController {
     
     private func setupLayout() {
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        imageContainerView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
             stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            stackView.widthAnchor.constraint(equalToConstant: 200),
-            stackView.heightAnchor.constraint(equalToConstant: 400),
-            
-            imageView.leftAnchor.constraint(equalTo: imageContainerView.leftAnchor),
-            imageView.rightAnchor.constraint(equalTo: imageContainerView.rightAnchor),
-            imageView.topAnchor.constraint(equalTo: imageContainerView.topAnchor),
-            imageView.bottomAnchor.constraint(equalTo: imageContainerView.bottomAnchor)
+            stackView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7),
+            stackView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.8),
         ])
     }
 }
