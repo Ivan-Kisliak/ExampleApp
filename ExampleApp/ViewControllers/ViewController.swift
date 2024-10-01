@@ -9,12 +9,15 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    private let helper = Helper()
-    
     private let textlabel = UILabel()
     private let shadowView = ShadowView(imageName: ShadowViewType.raccoon.rawValue)
-    private let secondShadowView = ShadowView(imageName: ShadowViewType.custom.rawValue)
     private let stackView = UIStackView()
+    private let numberButton = CustomButton(textButton: "ChangeButton", bgColor: .systemRed)
+    private let imageButton = CustomButton(textButton: "Change image", bgColor: .systemGreen)
+    
+    private let helper = Helper()
+    
+    private var isOneRaccoon = true
     
     private var randomNumber: Int {
         Int.random(in: 1...10)
@@ -22,33 +25,63 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         updateNumbers()
+        view.addGradient()
         
         setupTextLabel()
-        view.addGradient()
         setupStackView()
         view.addSubview(stackView)
+        addAction()
+        
         setupLayout()
     }
     
     private func updateNumbers() {
         helper.addNumber(randomNumber)
+        helper.addNumber(randomNumber)
+        helper.addNumber(randomNumber)
+    }
+    
+    @objc
+    private func numberButtonTapped() {
+        textlabel.text = helper.getRandomNumber().formatted()
     }
 }
 
 // MARK: - Setup View
 private extension ViewController {
     
+    func addAction() {
+        numberButton.addTarget(
+            self,
+            action: #selector(numberButtonTapped),
+            for: .touchUpInside)
+        
+        let action = UIAction { _ in
+            self.isOneRaccoon.toggle()
+            
+            let randomImageName = self.isOneRaccoon
+            ? ShadowViewType.raccoon
+            : ShadowViewType.custom
+            
+            
+            self.shadowView.updateImage(randomImageName.rawValue)
+        }
+        
+        imageButton.addAction(action, for: .touchUpInside)
+        
+    }
+    
     func setupStackView() {
         stackView.axis = .vertical
-        stackView.distribution = .fillEqually
+        stackView.distribution = .equalSpacing
         stackView.alignment = .fill
-        stackView.spacing = 10
+        stackView.spacing = 20
         
         stackView.addArrangedSubview(textlabel)
         stackView.addArrangedSubview(shadowView)
-        stackView.addArrangedSubview(secondShadowView)
+        stackView.addArrangedSubview(numberButton)
+        stackView.addArrangedSubview(imageButton)
     }
     
     func setupTextLabel() {
@@ -56,7 +89,7 @@ private extension ViewController {
         textlabel.text = firstNumber?.formatted()
         textlabel.font = .systemFont(ofSize: Constant.font30, weight: .bold)
         textlabel.textAlignment = .center
-        textlabel.textColor = .red
+        textlabel.textColor = .systemRed
     }
 }
 
@@ -71,7 +104,8 @@ private extension ViewController {
             stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
             stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             stackView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7),
-            stackView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.8),
+            
+            shadowView.heightAnchor.constraint(equalTo: stackView.widthAnchor)
         ])
     }
 }

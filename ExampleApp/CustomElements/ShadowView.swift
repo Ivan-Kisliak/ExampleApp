@@ -32,6 +32,14 @@ class ShadowView: UIView {
         layer.shadowPath = shadowPath.cgPath
     }
     
+    func updateImage(_ imageName: String) {
+        imageView.image = UIImage(named: imageName)
+    }
+}
+
+//MARK: - Setup View
+
+private extension ShadowView {
     private func setupImageView(_ imageName: String) {
         imageView.image = UIImage(named: imageName)
         imageView.contentMode = .scaleAspectFill
@@ -47,9 +55,12 @@ class ShadowView: UIView {
         layer.shadowOpacity = 0.7
         layer.shadowOffset = CGSize(width: 5, height: 5)
         layer.shadowRadius = 10
-        
     }
-    
+}
+
+//MARK: - Setup Layout
+
+private extension ShadowView {
     private func setupLayout() {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
