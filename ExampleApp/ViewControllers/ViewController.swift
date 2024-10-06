@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     private let numberButton = CustomButton(textButton: "ChangeButton", bgColor: .systemRed)
     private let imageButton = CustomButton(textButton: "Change image", bgColor: .systemGreen)
     
-    private let helper = Helper()
+    var helper: NumberManageable?
     
     private var isOneRaccoon = true
     
@@ -25,6 +25,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         updateNumbers()
         view.addGradient()
         
@@ -37,14 +38,14 @@ class ViewController: UIViewController {
     }
     
     private func updateNumbers() {
-        helper.addNumber(randomNumber)
-        helper.addNumber(randomNumber)
-        helper.addNumber(randomNumber)
+        helper?.addNumber(randomNumber)
+        helper?.addNumber(randomNumber)
+        helper?.addNumber(randomNumber)
     }
     
     @objc
     private func numberButtonTapped() {
-        textlabel.text = helper.getRandomNumber().formatted()
+        textlabel.text = helper?.getRandomNumber().formatted()
     }
 }
 
@@ -85,7 +86,7 @@ private extension ViewController {
     }
     
     func setupTextLabel() {
-        let firstNumber = helper.getNumbers().first
+        let firstNumber = helper?.getNumbers().first
         textlabel.text = firstNumber?.formatted()
         textlabel.font = .systemFont(ofSize: Constant.font30, weight: .bold)
         textlabel.textAlignment = .center
